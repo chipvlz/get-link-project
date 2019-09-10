@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('../fonts/Inconsolata-Regular.ttf') format('truetype');
+}
+
+.pageLayout {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-rows: [header-start] min-content [body-start] 1fr [footer-start] max-content [footer-end];
+  grid-template-areas:
+    'header'
+    'body'
+    'footer';
+}
+.header {
+  padding: 10px 20px;
+  grid-area: header;
+}
+.footer {
+  padding: 10px 0 10px 0;
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'Inconsolata', monospace;
+  grid-area: 'footer';
+}
+.imgIcon {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.imgIcon:hover {
+  color: #ffcc00;
+}
+.wrapHeaderContent {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerLeftSide {
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+  align-items: center;
+}
+.siteTitle {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.body {
+  padding: 0 5% 0 5%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  grid-area: body;
+}

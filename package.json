@@ -1,34 +1,57 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "@kencoder97/get-link-project",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A side project made for getting link on various platforms",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Cuong Vu Huu <kencoder97@gmail.com>",
   "dependencies": {
+    "antd": "^3.22.2",
+    "classnames": "^2.2.6",
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.10",
     "gatsby-plugin-manifest": "^2.2.6",
     "gatsby-plugin-offline": "^2.2.7",
+    "gatsby-plugin-postcss": "^2.1.6",
     "gatsby-plugin-react-helmet": "^3.1.4",
     "gatsby-plugin-sharp": "^2.2.13",
+    "gatsby-plugin-typescript": "^2.1.6",
     "gatsby-source-filesystem": "^2.1.11",
     "gatsby-transformer-sharp": "^2.2.7",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.0.5",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "@types/node": "^12.7.4",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
+    "babel-plugin-import": "^1.12.1",
+    "babel-preset-gatsby": "^0.2.12",
+    "eslint": "^6.2.2",
+    "eslint-plugin-react": "^7.14.3",
+    "inquirer": "6.3",
+    "postcss-preset-env": "^6.7.0",
+    "precss": "^4.0.0",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.2"
   },
   "keywords": [
-    "gatsby"
+    "getlink",
+    "get-link"
   ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "lint": "eslint --cache --ext .tsx,.ts,.js,.jsx .",
+    "format": "prettier --write \"**/*.{js,css,scss,jsx,json,ts,tsx}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
