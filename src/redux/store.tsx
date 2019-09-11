@@ -17,7 +17,6 @@ const store = createStore(
   /* preloadedState, */ composeEnhancers(applyMiddleware(sagaMiddleware))
 );
 sagaMiddleware.run(rootSaga);
-console.log(111);
 const wrapWithProvider: React.FC = ({ element }: { element: ReactElement }) => (
   <Provider store={store}>{element}</Provider>
 );

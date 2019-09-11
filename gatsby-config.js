@@ -36,6 +36,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-less',
+      options: {
+        javascriptEnabled: true,
+        modifyVars: {
+          'primary-color': '#F5222D',
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-typescript',
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

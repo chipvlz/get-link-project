@@ -1,0 +1,8 @@
+.iconOpenDrawer {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: font-size 0.3s;
+}
+.iconOpenDrawer:hover {
+  font-size: 2.2rem;
+}

@@ -3,12 +3,19 @@
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
+    '. . .'
     '. search-box .'
     '. . .';
-  align-items: center;
 }
 .wrapSearchBox {
   grid-area: search-box;
+  align-self: flex-start;
+}
+.wrapDrawer {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px
 }
