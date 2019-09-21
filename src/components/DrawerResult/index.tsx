@@ -5,7 +5,7 @@ import { openDrawer, closeDrawer } from '../../redux/actions/drawer';
 import styles from './index.module.css';
 
 const DrawerResult: React.FC = () => {
-  const isOpenDrawer = useSelector(state => state.isOpenDrawer);
+  const isOpenDrawer = useSelector(state => state.drawer.isOpen);
   const dispatch = useDispatch();
   Icon.setTwoToneColor('#f5222d');
   const closeDrawerDispatch = (): any => dispatch(closeDrawer());

@@ -1,5 +1,10 @@
-import { OPEN_DRAWER, CLOSE_DRAWER } from '../actionTypes/drawer';
-import { DrawerActionType } from '../actions/drawer';
+import {
+  OPEN_DRAWER,
+  CLOSE_DRAWER,
+  HIDE_ICON,
+  SHOW_ICON,
+} from '../actionTypes/drawer';
+import { DrawerActionType, IconDrawerActionType } from '../actions/drawer';
 
 export interface DrawerStateType {
   isOpen: boolean;
@@ -8,7 +13,7 @@ export interface DrawerStateType {
 
 const drawer = (
   state = { isOpen: false, showIcon: false },
-  action: DrawerActionType
+  action: DrawerActionType | IconDrawerActionType
 ): DrawerStateType => {
   switch (action.type) {
     case OPEN_DRAWER:
@@ -20,6 +25,16 @@ const drawer = (
       return {
         ...state,
         isOpen: false,
+      };
+    case SHOW_ICON:
+      return {
+        ...state,
+        showIcon: true,
+      };
+    case HIDE_ICON:
+      return {
+        ...state,
+        showIcon: false,
       };
     default:
       return state;

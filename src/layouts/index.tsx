@@ -5,12 +5,12 @@ import DrawerResult from '../components/DrawerResult';
 
 interface Arg {
   children: ReactNode;
-  path: string;
+  location: string;
   [other: string]: any;
 }
-const Layout: FC<{ children: ReactNode; path: string }> = ({
+const Layout: FC<{ children: ReactNode; location: string }> = ({
   children,
-  path,
+  location,
 }: Arg) => {
   return (
     <div className={styles.pageLayout}>
@@ -25,8 +25,8 @@ const Layout: FC<{ children: ReactNode; path: string }> = ({
           <div className={styles.headerRightSide}>
             <Menu
               mode="horizontal"
-              defaultSelectedKeys={[path]}
-              selectedKeys={[path]}
+              defaultSelectedKeys={[location.pathname]}
+              selectedKeys={[location.pathname]}
               overflowedIndicator={<Icon type="menu" />}
             >
               <Menu.Item key="/">Home</Menu.Item>
