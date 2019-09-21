@@ -6,6 +6,7 @@
   "author": "Cuong Vu Huu <kencoder97@gmail.com>",
   "dependencies": {
     "antd": "^3.22.2",
+    "axios": "^0.19.0",
     "classnames": "^2.2.6",
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.10",
@@ -27,7 +28,7 @@
     "reselect": "^4.0.0"
   },
   "devDependencies": {
-    "@types/node": "^12.7.4",
+    "@types/node": "^12.7.5",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@typescript-eslint/eslint-plugin": "^2.1.0",
@@ -40,10 +41,11 @@
     "inquirer": "6.3",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
+    "nodemon": "^1.19.2",
     "postcss-preset-env": "^6.7.0",
     "precss": "^4.0.0",
     "prettier": "^1.18.2",
-    "typescript": "^3.6.2"
+    "typescript": "^3.6.3"
   },
   "keywords": [
     "getlink",
@@ -53,8 +55,11 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "lint": "eslint --cache --ext .tsx,.ts,.js,.jsx .",
-    "format": "prettier --write \"**/*.{js,css,scss,jsx,json,ts,tsx}\"",
+    "lint": "eslint --cache --ext .tsx,.ts,.js,.jsx \"src/**/*.{ts,tsx,js,jsx}\"",
+    "lint:watch": "nodemon -e tsx,ts,js,jsx --watch src --exec \"yarn lint\"",
+    "typecheck": "tsc --noEmit",
+    "typecheck:watch": "yarn typecheck --watch",
+    "format": "prettier --write \"src/**/*.{js,css,jsx,json,ts,tsx}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""

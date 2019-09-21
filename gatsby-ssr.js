@@ -5,6 +5,7 @@
  */
 
 import wrapWithProvider from './src/redux/store';
+
 import GatsbyLayout from './src/layouts';
 
 export const wrapRootElement = wrapWithProvider;

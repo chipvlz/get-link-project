@@ -1,8 +1,10 @@
-.iconOpenDrawer {
-  font-size: 2rem;
+.wrapIcon {
   cursor: pointer;
+}
+.iconButton {
+  font-size: 2rem;
   transition: font-size 0.3s;
 }
-.iconOpenDrawer:hover {
-  font-size: 2.2rem;
+.iconButton:hover {
+  font-size: 2.5rem;
 }

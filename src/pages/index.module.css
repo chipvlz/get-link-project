@@ -13,9 +13,3 @@
   grid-area: search-box;
   align-self: flex-start;
 }
-.wrapDrawer {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 20px
-}

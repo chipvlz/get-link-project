@@ -34,8 +34,7 @@
 }
 .wrapHeaderContent {
   display: grid;
-  grid-template-columns: max-content max-content;
-  justify-content: space-between;
+  grid-template-columns: 5fr 5fr;
   align-items: center;
 }
 .headerLeftSide {
@@ -43,9 +42,18 @@
   grid-template-columns: 0fr 1fr;
   align-items: center;
 }
+.headerRightSide {
+  min-width: 0;
+  overflow-x: hidden;
+  margin-left: 150px;
+}
 .siteTitle {
   margin-left: 10px;
   cursor: pointer;
+  transition: color 0.5s;
+}
+.siteTitle:hover {
+  color: #f5222d;
 }
 .body {
   padding: 0 5% 0 5%;
@@ -53,4 +61,10 @@
   overflow-x: hidden;
   grid-area: body;
   position: relative;
+}
+.wrapDrawer {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
 }

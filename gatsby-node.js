@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const path = require('path');
 // You can delete this file if you're not using it
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
@@ -11,6 +12,15 @@ exports.onCreateBabelConfig = ({ actions }) => {
     options: {
       libraryName: 'antd',
       style: true,
+    },
+  });
+};
+exports.onCreateWebpackConfig = function({ actions }) {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@redux-dir': path.resolve(__dirname, 'src/redux'),
+      },
     },
   });
 };

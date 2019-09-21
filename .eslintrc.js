@@ -21,6 +21,7 @@ module.exports = {
     },
     ecmaVersion: 2018,
     sourceType: 'module',
+    project: './tsconfig.json',
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
@@ -28,6 +29,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     'comma-dangle': ['error', 'always-multiline'],
+    '@typescript-eslint/no-explicit-any': 0,
   },
   settings: {
     react: {
