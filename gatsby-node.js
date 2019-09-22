@@ -5,6 +5,14 @@
  */
 
 const path = require('path');
+require('dotenv').config({
+  path:
+    process.env.NODE_ENV === 'development'
+      ? '.env.dev'
+      : process.env.NODE_ENV === 'production'
+      ? '.env.prod'
+      : '.env',
+});
 // You can delete this file if you're not using it
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({

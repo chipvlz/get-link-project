@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './index.module.css';
 import { Input, Icon } from 'antd';
 import { searchBoxChangeValue } from '@redux-dir/actions/search-box-value';
+import { getLinkRequest } from '@redux-dir/actions/server-response';
 import { useDispatch, useSelector } from 'react-redux';
 
 const { Search } = Input;
@@ -9,6 +10,9 @@ const { Search } = Input;
 const Index: React.FC = () => {
   const dispatch = useDispatch();
   const inputValue = useSelector((state): string => state.searchBoxValue);
+  const handleGetLink = (): void => {
+    dispatch(getLinkRequest(inputValue));
+  };
   return (
     <div className={styles.wrapBody}>
       <div className={styles.wrapSearchBox}>
@@ -21,7 +25,7 @@ const Index: React.FC = () => {
           }
           size="large"
           value={inputValue}
-          onSearch={(value): void => console.log(value)}
+          onSearch={handleGetLink}
           onChange={(e): void => dispatch(searchBoxChangeValue(e.target.value))}
         />
       </div>

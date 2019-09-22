@@ -1,0 +1,3 @@
+export const GET_LINK_REQUEST = 'GET_LINK_REQUEST';
+export const GET_LINK_SUCCEED = 'GET_LINK_SUCCEED';
+export const GET_LINK_FAILED = 'GET_LINK_FAILED';

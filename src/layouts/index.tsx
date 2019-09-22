@@ -2,18 +2,25 @@ import React, { ReactNode, FC } from 'react';
 import styles from './index.module.css';
 import { Icon, Typography, Menu } from 'antd';
 import DrawerResult from '../components/DrawerResult';
+import { useSelector } from 'react-redux';
+import Helmet from 'react-helmet';
 
-interface Arg {
+interface LayoutParams {
   children: ReactNode;
-  location: string;
+  location: {
+    pathname: string;
+  };
   [other: string]: any;
 }
-const Layout: FC<{ children: ReactNode; location: string }> = ({
-  children,
-  location,
-}: Arg) => {
+const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
+  const showIcon: boolean = useSelector(state => state.drawer.showIcon);
   return (
     <div className={styles.pageLayout}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Get Link Project - @kencoder97</title>
+        <link rel="canonical" href="https://link.kencoding.com" />
+      </Helmet>
       <header className={styles.header}>
         <div className={styles.wrapHeaderContent}>
           <div className={styles.headerLeftSide}>
@@ -41,7 +48,7 @@ const Layout: FC<{ children: ReactNode; location: string }> = ({
       <div className={styles.body}>{children}</div>
       {/*drawer result */}
       <div className={styles.wrapDrawer}>
-        <DrawerResult />
+        {showIcon && <DrawerResult showIcon={showIcon} />}
       </div>
       <footer className={styles.footer}>Made with </footer>
     </div>
@@ -49,17 +56,17 @@ const Layout: FC<{ children: ReactNode; location: string }> = ({
 };
 
 //using in gatsby layout
-interface Arg2 {
+interface GatsbyLayoutParams {
   element: ReactNode;
   props: {
-    path: string;
+    location: {
+      pathname: string;
+    };
   };
 }
-const GatsbyLayout: FC<{
-  element: React.ReactNode;
-  props: {
-    path: string;
-  };
-}> = ({ element, props }: Arg2) => <Layout {...props}>{element}</Layout>;
+const GatsbyLayout: FC<GatsbyLayoutParams> = ({
+  element,
+  props,
+}: GatsbyLayoutParams) => <Layout {...props}>{element}</Layout>;
 
 export default GatsbyLayout;
