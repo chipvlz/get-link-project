@@ -1,17 +1,22 @@
 import React from 'react';
-import { Drawer, Icon } from 'antd';
+import { Drawer, Icon, Card, Tag } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { openDrawer, closeDrawer } from '../../redux/actions/drawer';
 import styles from './index.module.css';
-
+import listColor from '../../utils/list-color';
 
 const DrawerResult: React.FC = () => {
   const isOpenDrawer = useSelector(state => state.drawer.isOpen);
+  const response = useSelector(state => state.serverResponse.response);
   const dispatch = useDispatch();
   Icon.setTwoToneColor('#f5222d');
   const closeDrawerDispatch = (): any => dispatch(closeDrawer());
   const openDrawerDispatch = (): any => dispatch(openDrawer());
-
+  const getFormat = (format: string, formatId: string): string => {
+    const re = /^.*?\s-?\s(.+)/;
+    const res = format.match(re);
+    return res ? (res[1] !== 'unknown' ? res[1] : formatId) : format;
+  };
   return (
     <div className={styles.drawerContent}>
       <div className={styles.wrapIcon} onClick={openDrawerDispatch}>
@@ -27,10 +32,70 @@ const DrawerResult: React.FC = () => {
         placement="right"
         onClose={closeDrawerDispatch}
         visible={isOpenDrawer}
+        width="50%"
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <>
+          {response && response.both && (
+            <Card
+              title="Video with sound"
+              bordered={false}
+              className={styles.cardLink}
+            >
+              <p>
+                {response.both.map((link, index) => (
+                  <Tag
+                    onClick={() => window.open(link.url, '_blank')}
+                    className={styles.tagLink}
+                    color={listColor[index] ? listColor[index] : listColor[0]}
+                    key={link.url}
+                  >
+                    {`${getFormat(link.format, link.format_id)}.${link.ext}`}
+                  </Tag>
+                ))}
+              </p>
+            </Card>
+          )}
+          {response && response.video && (
+            <Card
+              title="Video only"
+              bordered={false}
+              className={styles.cardLink}
+            >
+              <p>
+                {response.video.map((link, index) => (
+                  <Tag
+                    onClick={() => window.open(link.url, '_blank')}
+                    className={styles.tagLink}
+                    color={listColor[index] ? listColor[index] : listColor[0]}
+                    key={link.url}
+                  >
+                    {`${getFormat(link.format, link.format_id)}.${link.ext}`}
+                  </Tag>
+                ))}
+              </p>
+            </Card>
+          )}
+          {response && response.audio && (
+            <Card
+              title="Audio only"
+              bordered={false}
+              className={styles.cardLink}
+            >
+              <p>
+                {response.audio.map((link, index) => (
+                  <Tag
+                    onClick={() => window.open(link.url, '_blank')}
+                    className={styles.tagLink}
+                    color={listColor[index] ? listColor[index] : listColor[0]}
+                    key={link.url}
+                  >
+                    {`${getFormat(link.format, link.format_id)}.${link.ext}`}
+                  </Tag>
+                ))}
+              </p>
+            </Card>
+          )}
+        </>
       </Drawer>
     </div>
   );

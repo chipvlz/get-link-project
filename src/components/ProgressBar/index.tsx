@@ -47,6 +47,7 @@ const ProgressBar: React.FC<Props> = ({ isLoading }: Props) => {
           status="active"
           showInfo={false}
           strokeLinecap="square"
+          strokeColor="#e74c3c"
         />
       )}
     </>

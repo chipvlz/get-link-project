@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, FC } from 'react';
+import React, { ReactNode, FC } from 'react';
 import styles from './index.module.css';
 import { Icon, Typography, Menu } from 'antd';
 import DrawerResult from '../components/DrawerResult';
@@ -18,7 +18,6 @@ const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
   const isFetching: boolean = useSelector(
     state => state.serverResponse.isFetching
   );
-  const [a, setA] = useState(true);
   return (
     <div className={styles.pageLayout}>
       <Helmet>
@@ -53,7 +52,7 @@ const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
       {/*body component*/}
       <div className={styles.body}>{children}</div>
       {/*drawer result */}
-      <div className={styles.wrapDrawer}>{true && <DrawerResult />}</div>
+      <div className={styles.wrapDrawer}>{showIcon && <DrawerResult />}</div>
       <footer className={styles.footer}>Made with </footer>
     </div>
   );

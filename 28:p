@@ -37,5 +37,4 @@
 }
 .tagLink {
   cursor: pointer;
-  margin: 5px;
 }
