@@ -1,0 +1,9 @@
+.progressBar {
+  position: fixed;
+  top: -10px;
+  left: 0;
+}
+.hide {
+  display: none;
+  z-index: -999;
+}

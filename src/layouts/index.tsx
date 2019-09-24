@@ -1,9 +1,10 @@
-import React, { ReactNode, FC } from 'react';
+import React, { useState, ReactNode, FC } from 'react';
 import styles from './index.module.css';
 import { Icon, Typography, Menu } from 'antd';
 import DrawerResult from '../components/DrawerResult';
 import { useSelector } from 'react-redux';
 import Helmet from 'react-helmet';
+import ProgressBar from '../components/ProgressBar';
 
 interface LayoutParams {
   children: ReactNode;
@@ -14,6 +15,10 @@ interface LayoutParams {
 }
 const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
   const showIcon: boolean = useSelector(state => state.drawer.showIcon);
+  const isFetching: boolean = useSelector(
+    state => state.serverResponse.isFetching
+  );
+  const [a, setA] = useState(true);
   return (
     <div className={styles.pageLayout}>
       <Helmet>
@@ -22,6 +27,7 @@ const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
         <link rel="canonical" href="https://link.kencoding.com" />
       </Helmet>
       <header className={styles.header}>
+        <ProgressBar isLoading={isFetching} />
         <div className={styles.wrapHeaderContent}>
           <div className={styles.headerLeftSide}>
             <Icon className={styles.imgIcon} type="thunderbolt" />
@@ -47,9 +53,7 @@ const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
       {/*body component*/}
       <div className={styles.body}>{children}</div>
       {/*drawer result */}
-      <div className={styles.wrapDrawer}>
-        {showIcon && <DrawerResult showIcon={showIcon} />}
-      </div>
+      <div className={styles.wrapDrawer}>{true && <DrawerResult />}</div>
       <footer className={styles.footer}>Made with </footer>
     </div>
   );

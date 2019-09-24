@@ -6,7 +6,7 @@ import {
   GetLinkRequestType,
 } from '../actions/server-response';
 import { GET_LINK_REQUEST } from '../actionTypes/server-response';
-import { showIcon, hideIcon } from '../actions/drawer';
+import { showIcon, hideIcon, closeDrawer, openDrawer } from '../actions/drawer';
 
 export function* getLink(action: GetLinkRequestType): any {
   try {
@@ -19,11 +19,13 @@ export function* getLink(action: GetLinkRequestType): any {
     );
     yield put(getLinkSucceed(response));
     yield put(showIcon());
+    yield put(openDrawer());
   } catch (err) {
     yield put(
       getLinkFailed(JSON.stringify(err, Object.getOwnPropertyNames(err)))
     );
     yield put(hideIcon());
+    yield put(closeDrawer());
   }
 }
 export default function* watchGetLink(): any {

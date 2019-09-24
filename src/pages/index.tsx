@@ -27,6 +27,7 @@ const Index: React.FC = () => {
           value={inputValue}
           onSearch={handleGetLink}
           onChange={(e): void => dispatch(searchBoxChangeValue(e.target.value))}
+          onClick={(e): void => e.currentTarget.select()}
         />
       </div>
     </div>
