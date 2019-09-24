@@ -28,7 +28,7 @@ const DrawerResult: React.FC = () => {
       </div>
 
       <Drawer
-        title="Download links are ready!"
+        title="Select download type:"
         placement="right"
         onClose={closeDrawerDispatch}
         visible={isOpenDrawer}
@@ -42,16 +42,20 @@ const DrawerResult: React.FC = () => {
               className={styles.cardLink}
             >
               <p>
-                {response.both.map((link, index) => (
-                  <Tag
-                    onClick={() => window.open(link.url, '_blank')}
-                    className={styles.tagLink}
-                    color={listColor[index] ? listColor[index] : listColor[0]}
-                    key={link.url}
-                  >
-                    {`${getFormat(link.format, link.format_id)}.${link.ext}`}
-                  </Tag>
-                ))}
+                {response.both.map(
+                  (link, index): React.ReactNode => (
+                    <Tag
+                      onClick={(): Window | null =>
+                        window.open(link.url, '_blank')
+                      }
+                      className={styles.tagLink}
+                      color={listColor[index] ? listColor[index] : listColor[0]}
+                      key={link.url}
+                    >
+                      {`${getFormat(link.format, link.format_id)}.${link.ext}`}
+                    </Tag>
+                  )
+                )}
               </p>
             </Card>
           )}
@@ -62,16 +66,20 @@ const DrawerResult: React.FC = () => {
               className={styles.cardLink}
             >
               <p>
-                {response.video.map((link, index) => (
-                  <Tag
-                    onClick={() => window.open(link.url, '_blank')}
-                    className={styles.tagLink}
-                    color={listColor[index] ? listColor[index] : listColor[0]}
-                    key={link.url}
-                  >
-                    {`${getFormat(link.format, link.format_id)}.${link.ext}`}
-                  </Tag>
-                ))}
+                {response.video.map(
+                  (link, index): React.ReactElement => (
+                    <Tag
+                      onClick={(): Window | null =>
+                        window.open(link.url, '_blank')
+                      }
+                      className={styles.tagLink}
+                      color={listColor[index] ? listColor[index] : listColor[0]}
+                      key={link.url}
+                    >
+                      {`${getFormat(link.format, link.format_id)}.${link.ext}`}
+                    </Tag>
+                  )
+                )}
               </p>
             </Card>
           )}
@@ -84,7 +92,9 @@ const DrawerResult: React.FC = () => {
               <p>
                 {response.audio.map((link, index) => (
                   <Tag
-                    onClick={() => window.open(link.url, '_blank')}
+                    onClick={(): Window | null =>
+                      window.open(link.url, '_blank')
+                    }
                     className={styles.tagLink}
                     color={listColor[index] ? listColor[index] : listColor[0]}
                     key={link.url}

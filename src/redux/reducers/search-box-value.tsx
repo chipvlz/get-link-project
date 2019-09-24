@@ -2,7 +2,7 @@ import { SEARCH_BOX_CHANGE_VALUE } from '../actionTypes/search-box-value';
 import { SearchBoxChangeValueType } from '../actions/search-box-value';
 
 const searchBoxValue = (
-  state: string = '',
+  state = '',
   action: SearchBoxChangeValueType
 ): string => {
   switch (action.type) {

@@ -30,7 +30,6 @@ export default (url: string): detectTypeReturn => {
     }
     return result !== null ? result[1] : null;
   } catch (err) {
-    logger.error(err);
     return null;
   }
 };

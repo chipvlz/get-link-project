@@ -5,11 +5,26 @@
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
-    '. . .'
+    'support support support'
     '. search-box .'
     '. . .';
 }
 .wrapSearchBox {
   grid-area: search-box;
   align-self: flex-start;
+}
+.wrapSupport {
+  grid-area: support;
+  text-align: center;
+  align-self: center;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+}
+.tag {
+  font-size: 1.1rem;
+  margin: 2px;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 900;
 }
