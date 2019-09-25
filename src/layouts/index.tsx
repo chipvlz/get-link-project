@@ -5,7 +5,7 @@ import DrawerResult from '../components/DrawerResult';
 import { useSelector } from 'react-redux';
 import Helmet from 'react-helmet';
 import ProgressBar from '../components/ProgressBar';
-import { navigate } from 'gatsby';
+import { Link } from 'gatsby';
 
 interface LayoutParams {
   children: ReactNode;
@@ -14,7 +14,6 @@ interface LayoutParams {
   };
   [other: string]: any;
 }
-const navigateTo = ({ key }): void => navigate(key);
 
 const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
   const showIcon: boolean = useSelector(state => state.drawer.showIcon);
@@ -32,20 +31,18 @@ const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
         <ProgressBar isLoading={isFetching} />
         <div className={styles.wrapHeaderContent}>
           <div className={styles.headerLeftSide}>
-            <Icon
-              onClick={(): void => navigate('/')}
-              className={styles.imgIcon}
-              type="thunderbolt"
-            />
-            {/*
-            // @ts-ignore */}
-            <Typography.Title
-              onClick={(): void => navigate('/')}
-              level={4}
-              className={styles.siteTitle}
-            >
-              Get Link Project
-            </Typography.Title>
+            <Link to="/">
+              <Icon
+                onClick={(): void => navigate('/')}
+                className={styles.imgIcon}
+                type="thunderbolt"
+              />
+            </Link>
+            <Link to="/">
+              <Typography.Title level={4} className={styles.siteTitle}>
+                Get Link Project
+              </Typography.Title>
+            </Link>
           </div>
           <div className={styles.headerRightSide}>
             <Menu
@@ -54,14 +51,14 @@ const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
               selectedKeys={[location.pathname]}
               overflowedIndicator={<Icon type="menu" />}
             >
-              <Menu.Item onClick={navigateTo} key="/">
-                Home
+              <Menu.Item key="/">
+                <Link to="/">Home</Link>
               </Menu.Item>
-              <Menu.Item onClick={navigateTo} key="/about-project">
-                About The Project
+              <Menu.Item key="/about-project">
+                <Link to="/about-project">About The Project</Link>
               </Menu.Item>
-              <Menu.Item onClick={navigateTo} key="/contact-me">
-                Contact Me
+              <Menu.Item key="/contact-me">
+                <Link to="/contact-me">Contact Me</Link>
               </Menu.Item>
             </Menu>
           </div>
