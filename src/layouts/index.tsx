@@ -32,10 +32,7 @@ const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
         <div className={styles.wrapHeaderContent}>
           <div className={styles.headerLeftSide}>
             <Link to="/">
-              <Icon
-                className={styles.imgIcon}
-                type="thunderbolt"
-              />
+              <Icon className={styles.imgIcon} type="thunderbolt" />
             </Link>
             <Link to="/">
               <Typography.Title level={4} className={styles.siteTitle}>

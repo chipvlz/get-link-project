@@ -32,18 +32,6 @@ const AboutMe: React.FC = () => {
         </p>
         <p>
           <Text>
-            Facebook:&nbsp;&nbsp;&nbsp;&nbsp;
-            <a
-              href="https://facebook.com/vuhuucuong97"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              fb.com/vuhuucuong97
-            </a>
-          </Text>
-        </p>
-        <p>
-          <Text>
             Twitter:&nbsp;&nbsp;&nbsp;&nbsp;
             <a
               href="https://twitter.com/vuhuucuong97"
