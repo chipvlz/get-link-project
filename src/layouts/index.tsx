@@ -33,7 +33,6 @@ const Layout: FC<LayoutParams> = ({ children, location }: LayoutParams) => {
           <div className={styles.headerLeftSide}>
             <Link to="/">
               <Icon
-                onClick={(): void => navigate('/')}
                 className={styles.imgIcon}
                 type="thunderbolt"
               />
