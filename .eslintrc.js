@@ -25,6 +25,11 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
     semi: ['error', 'always'],
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
@@ -59,6 +64,11 @@ module.exports = {
         quotes: ['error', 'single'],
         'comma-dangle': ['error', 'always-multiline'],
         '@typescript-eslint/no-explicit-any': 0,
+      },
+      settings: {
+        react: {
+          version: 'detect',
+        },
       },
     },
   ],
