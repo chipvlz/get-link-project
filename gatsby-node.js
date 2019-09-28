@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-
+/*eslint-disable*/
 const path = require('path');
 require('dotenv').config({
   path: process.env.NODE_ENV === 'development' ? '.env.dev' : '.env.prod',
